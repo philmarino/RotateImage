@@ -1,12 +1,11 @@
 def rotate(matrix):
-    answer = []
-    
+    #clever solution from Aaru_07: https://leetcode.com/problems/rotate-image/solutions/5533383/very-easy-c-solution-beats-100/?envType=study-plan-v2&envId=top-interview-150
     for i in range(len(matrix)):
-        answer.append([]) 
-        for j in range(len(matrix)-1, -1, -1):
-            answer[i].append(matrix[j][i])
+        for j in range(i+1, len(matrix)):
+            matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j] #check out this swap
+        matrix[i].reverse()
 
-    return answer
+    return matrix
 
 # Example 1:
 # Input: 
